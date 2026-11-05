@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Encuesta de Satisfacción de Transporte</title>
+  <style>
+    :root {
+      --bg-color: #f4f6f9;
+      --card-bg: #ffffff;
+      --text-color: #333333;
+      --accent-color: #0056b3;
+      --border-color: #dddddd;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    h1 {
+      font-size: 1.5rem;
+      color: var(--accent-color);
+      margin-top: 0;
+      text-align: center;
+    }
+    p.subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 25px;
+    }
+    .section-title {
+      font-size: 1.1rem;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+      margin-top: 25px;
+      margin-bottom: 15px;
+      color: #222;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+    select, input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      box-sizing: border-box;
+    }
+    select:focus, input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent-color);
+    }
+    .radio-group label {
+      font-weight: normal;
+      display: inline-block;
+      margin-right: 15px;
+      margin-top: 5px;
+      cursor: pointer;
+    }
+    button[type="submit"] {
+      width: 100%;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border: none;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.2s ease;
+    }
+    button[type="submit"]:hover {
+      background-color: #004085;
+    }
+  </style>
+</head>
+<body>
+
+
+  <div class="container">
+    <h1>Encuesta de Satisfacción</h1>
+    <p class="subtitle">Servicio de Transporte Redondo</p>
+
+
+    <!-- Integración directa con tu Endpoint de Formspree -->
+    <form action="https://formspree.io/f/xvkkybyz" method="POST">
+
+
+      <!-- 1. DATOS DEL VIAJE -->
+      <div class="section-title">1. Datos del Viaje</div>
+
+
+      <div class="form-group">
+        <label for="punto_salida">Selecciona tu punto de salida/abordaje (Punto A):</label>
+        <select name="punto_salida" id="punto_salida" required>
+          <option value="" disabled selected>-- Selecciona un punto de salida --</option>
+          <option value="Plaza Chimalhuacán (Coppel Canadá)">Plaza Chimalhuacán (Coppel Canadá)</option>
+          <option value="Coppel 5 de Mayo (Toluca)">Coppel 5 de Mayo (Toluca)</option>
+          <option value="Coppel Los Reyes">Coppel Los Reyes</option>
+          <option value="Plaza Fashion Mall Tlalnepantla (Bahía Mario Colín - Sears)">Plaza Fashion Mall Tlalnepantla (Bahía Mario Colín - Sears)</option>
+          <option value="Forum Buenavista (Eje 1 Norte)">Forum Buenavista (Eje 1 Norte)</option>
+          <option value="Gran Sur (Gasolinera Gogas frente a Sodimac)">Gran Sur (Gasolinera Gogas frente a Sodimac)</option>
+          <option value="Plaza del Mariachi Iztapalapa">Plaza del Mariachi Iztapalapa</option>
+          <option value="Parque Toreo (Servicio Pericentro)">Parque Toreo (Servicio Pericentro)</option>
+          <option value="Plaza San Marcos Cuautitlán (Bahía Av. Chalma junto a KFC)">Plaza San Marcos Cuautitlán (Bahía Av. Chalma junto a KFC)</option>
+          <option value="Plaza Sendero Ixtapaluca (Frente a Chili's)">Plaza Sendero Ixtapaluca (Frente a Chili's)</option>
+          <option value="Plaza Tepeyac (Chili's Plaza Tepeyac)">Plaza Tepeyac (Chili's Plaza Tepeyac)</option>
+          <option value="Power Center Tecámac (Radial Llantas)">Power Center Tecámac (Radial Llantas)</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label>¿Qué trayecto realizaste?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="tipo_viaje" value="Solo Ida (Punto A -> Punto B)" required> Solo Ida</label>
+          <label><input type="radio" name="tipo_viaje" value="Solo Regreso (Punto B -> Punto A)"> Solo Regreso</label>
+          <label><input type="radio" name="tipo_viaje" value="Viaje Redondo (Ida y Vuelta)"> Viaje Redondo</label>
+        </div>
+      </div>
+
+
+      <!-- 2. PUNTUALIDAD Y LOGÍSTICA -->
+      <div class="section-title">2. Puntualidad y Logística</div>
+
+
+      <div class="form-group">
+        <label for="puntualidad_ida">¿El transporte llegó a tiempo a tu punto de abordaje en la IDA?</label>
+        <select name="puntualidad_ida" id="puntualidad_ida" required>
+          <option value="" disabled selected>-- Selecciona una respuesta --</option>
+          <option value="Sí, a tiempo">Sí, a tiempo</option>
+          <option value="Con leve retraso (5-15 min)">Con leve retraso (5-15 min)</option>
+          <option value="Con retraso considerable">Con retraso considerable</option>
+          <option value="No tomé el trayecto de ida">No tomé el trayecto de ida</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="puntualidad_regreso">¿El transporte salió a tiempo en el REGRESO?</label>
+        <select name="puntualidad_regreso" id="puntualidad_regreso" required>
+          <option value="" disabled selected>-- Selecciona una respuesta --</option>
+          <option value="Sí, a tiempo">Sí, a tiempo</option>
+          <option value="Con leve retraso (5-15 min)">Con leve retraso (5-15 min)</option>
+          <option value="Con retraso considerable">Con retraso considerable</option>
+          <option value="No tomé el trayecto de regreso">No tomé el trayecto de regreso</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="comunicacion_previa">¿La comunicación previa de puntos de encuentro y horarios fue clara?</label>
+        <select name="comunicacion_previa" id="comunicacion_previa" required>
+          <option value="5">5 - Excelente comunicación</option>
+          <option value="4">4 - Buena comunicación</option>
+          <option value="3">3 - Regular / Con dudas</option>
+          <option value="2">2 - Deficiente</option>
+          <option value="1">1 - Muy mala / Confusa</option>
+        </select>
+      </div>
+
+
+      <!-- 3. CONDUCTOR Y VEHÍCULO -->
+      <div class="section-title">3. Conductor y Vehículo</div>
+
+
+      <div class="form-group">
+        <label for="atencion_conductor">¿Cómo calificas la atención y actitud del conductor?</label>
+        <select name="atencion_conductor" id="atencion_conductor" required>
+          <option value="Excelente">Excelente</option>
+          <option value="Buena">Buena</option>
+          <option value="Regular">Regular</option>
+          <option value="Mala">Mala</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label>¿Sentiste que la conducción fue segura durante el trayecto?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="conduccion_segura" value="Sí" required> Sí</label>
+          <label><input type="radio" name="conduccion_segura" value="No"> No</label>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="limpieza_unidad">Limpieza y estado general de la unidad:</label>
+        <select name="limpieza_unidad" id="limpieza_unidad" required>
+          <option value="5 - Impecable">5 - Impecable</option>
+          <option value="4 - Bueno">4 - Bueno</option>
+          <option value="3 - Aceptable">3 - Aceptable</option>
+          <option value="2 - Sucio/Deficiente">2 - Sucio/Deficiente</option>
+          <option value="1 - Muy malo">1 - Muy malo</option>
+        </select>
+      </div>
+
+
+      <!-- 4. EVALUACIÓN GENERAL -->
+      <div class="section-title">4. Evaluación General</div>
+
+
+      <div class="form-group">
+        <label for="satisfaccion_general">Nivel de satisfacción general con el servicio:</label>
+        <select name="satisfaccion_general" id="satisfaccion_general" required>
+          <option value="5 Estrellas (Muy Satisfecho)">⭐️⭐️⭐️⭐️⭐️ (5 - Muy Satisfecho)</option>
+          <option value="4 Estrellas (Satisfecho)">⭐️⭐️⭐️⭐️ (4 - Satisfecho)</option>
+          <option value="3 Estrellas (Neutral)">⭐️⭐️⭐️ (3 - Neutral)</option>
+          <option value="2 Estrellas (Insatisfecho)">⭐️⭐️ (2 - Insatisfecho)</option>
+          <option value="1 Estrella (Muy Insatisfecho)">⭐️ (1 - Muy Insatisfecho)</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="recomendaría">¿Recomendarías este servicio para futuros viajes?</label>
+        <select name="recomendaria_servicio" id="recomendaría" required>
+          <option value="Definitivamente sí">Definitivamente sí</option>
+          <option value="Tal vez">Tal vez</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="comentarios">Comentarios, quejas o sugerencias de mejora:</label>
+        <textarea name="comentarios" id="comentarios" rows="4" placeholder="Escribe aquí cualquier observación sobre el viaje..."></textarea>
+      </div>
+
+
+      <button type="submit">Enviar Encuesta</button>
+
+
+    </form>
+  </div>
+
+
+</body>
+</html>
